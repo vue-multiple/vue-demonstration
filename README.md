@@ -41,7 +41,9 @@ For more information, please refer to [vue-demonstration](http://savoygu.github.
   const sourcecode = `<div>your code</div>`
   export default {
      data () {
-        sourcecode
+        return {
+          sourcecode
+        }
      }
   }
 </script>
