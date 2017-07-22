@@ -261,7 +261,7 @@
           </thead>
           <tbody>
           <tr>
-            <td>multiple <i class="vd-demo__new">（特殊标识）</i></td>
+            <td>multiple</td>
             <td>是否同时展示多个示例</td>
             <td>boolean</td>
             <td>—</td>
@@ -329,7 +329,11 @@
           <th>参数</th>
           <th>说明</th>
           </thead>
-          <tbody>
+          <tbody>          
+          <tr>
+            <td>title <i class="vd-demo__new">（1.0.1 新增）</i></td>
+            <td>标题</td>
+          </tr>
           <tr>
             <td>description</td>
             <td>标题描述</td>

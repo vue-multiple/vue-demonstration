@@ -3,7 +3,8 @@
     <vd-demo-title
         :title="title"
         :anchor="anchor"
-        :tag="tag"></vd-demo-title>
+        :tag="tag"
+        :has-slot="!!$slots.title"></vd-demo-title>
     <vd-demo-description
       :description="description"
       :has-slot="!!$slots.description">
@@ -53,8 +54,14 @@
         type: String,
         default: ''
       },
-      title: String,
-      description: String,
+      title: {
+        type: String,
+        default: ''
+      },
+      description: {
+        type: String,
+        default: ''
+      },
       showContent: {
         type: Boolean,
         default: true
@@ -101,11 +108,11 @@
         props: {
           title: String,
           anchor: String,
-          tag: String
+          tag: String,
+          hasSlot: Boolean
         },
         render (h) {
-          if (this.title) {
-            return h(this.tag, {
+          return h(this.tag, {
                   attrs: {
                     id: this.anchor
                   }
@@ -121,10 +128,8 @@
                       innerHTML: '¶'
                     }
                   }),
-                  this.title
+                  this.title ? this.title : (this.hasSlot ? this.$parent.$slots.title : '' )
                 ])
-          }
-          return ''
         }
       },
       'vd-demo-description': {
