@@ -1,7 +1,7 @@
 {
   "name": "vue-demonstration",
   "description": "Vue-based element docs's demo code style component, asily add examples to your vue project to show your code.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "savoygu",
   "main": "lib/vue-demonstration.js",
   "files": [
