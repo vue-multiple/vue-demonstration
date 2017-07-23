@@ -9,12 +9,11 @@
         :description="description"
         :has-slot="!!$slots.description">
     </vd-demo-description>
+    <div class="vd-demo__code" v-if="code">
+      <pre v-highlightjs="code"><code class="html language-javascript"></code></pre>
+    </div>
+    <slot></slot>
     <slot name="table"></slot>
-    <slot name="code">
-      <div class="vd-demo__code" v-if="code">
-        <pre v-highlightjs="code"><code class="html language-javascript"></code></pre>
-      </div>
-    </slot>
     <div class="vd-demo__content" v-if="showContent">
       <div class="vd-demo__source" :style="{padding: multiple ? '0' : '24px'}" ref="source">
         <slot name="source"></slot>
