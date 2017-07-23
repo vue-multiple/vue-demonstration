@@ -118,24 +118,27 @@
           hasSlot: Boolean
         },
         render (h) {
-          return h(this.tag, {
-              attrs: {
-                id: this.anchor
-              }
-            },
-            [
-              h('a', {
+          if (this.title || this.hasSlot) {
+            return h(this.tag, {
                 attrs: {
-                  href: '#' + this.anchor,
-                  'aria-hidden': true,
-                  class: 'header-anchor'
-                },
-                domProps: {
-                  innerHTML: '¶'
+                  id: this.anchor
                 }
-              }),
-              this.title ? this.title : (this.hasSlot ? this.$parent.$slots.title : '' )
-            ])
+              },
+              [
+                h('a', {
+                  attrs: {
+                    href: '#' + this.anchor,
+                    'aria-hidden': true,
+                    class: 'header-anchor'
+                  },
+                  domProps: {
+                    innerHTML: '¶'
+                  }
+                }),
+                this.title ? this.title : this.$parent.$slots.title
+              ])
+          }
+          return ''
         }
       },
       'vd-demo-description': {
@@ -160,6 +163,7 @@
               }
             }, this.$parent.$slots.description)
           }
+          return ''
         }
       }
     }
