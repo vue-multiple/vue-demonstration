@@ -6,10 +6,15 @@
         :tag="tag"
         :has-slot="!!$slots.title"></vd-demo-title>
     <vd-demo-description
-      :description="description"
-      :has-slot="!!$slots.description">
+        :description="description"
+        :has-slot="!!$slots.description">
     </vd-demo-description>
     <slot name="table"></slot>
+    <slot name="code">
+      <div class="vd-demo__code" v-if="code">
+        <pre v-highlightjs="code"><code class="html language-javascript"></code></pre>
+      </div>
+    </slot>
     <div class="vd-demo__content" v-if="showContent">
       <div class="vd-demo__source" :style="{padding: multiple ? '0' : '24px'}" ref="source">
         <slot name="source"></slot>
@@ -46,6 +51,7 @@
     props: {
       multiple: Boolean,
       highlight: String,
+      code: String,
       tag: {
         type: String,
         default: 'h3'
@@ -81,9 +87,9 @@
       if (source) {
         let blocks = source.querySelectorAll('.vd-demo__block-1')
         if (
-            blocks.length
-            && blocks.length % 2 === 1
-            && blocks.length - 2 > 0
+          blocks.length
+          && blocks.length % 2 === 1
+          && blocks.length - 2 > 0
         ) {
           blocks[blocks.length - 2].style.borderBottom = '1px solid #eff2f6'
         }
@@ -113,23 +119,23 @@
         },
         render (h) {
           return h(this.tag, {
-                  attrs: {
-                    id: this.anchor
-                  }
+              attrs: {
+                id: this.anchor
+              }
+            },
+            [
+              h('a', {
+                attrs: {
+                  href: '#' + this.anchor,
+                  'aria-hidden': true,
+                  class: 'header-anchor'
                 },
-                [
-                  h('a', {
-                    attrs: {
-                      href: '#' + this.anchor,
-                      'aria-hidden': true,
-                      class: 'header-anchor'
-                    },
-                    domProps: {
-                      innerHTML: '¶'
-                    }
-                  }),
-                  this.title ? this.title : (this.hasSlot ? this.$parent.$slots.title : '' )
-                ])
+                domProps: {
+                  innerHTML: '¶'
+                }
+              }),
+              this.title ? this.title : (this.hasSlot ? this.$parent.$slots.title : '' )
+            ])
         }
       },
       'vd-demo-description': {
@@ -161,6 +167,7 @@
 </script>
 <style lang="less" rel="stylesheet/less">
   @import "../styles/less/style";
+
   .vd-demo {
     width: 1000px;
     margin: 0 auto;
@@ -312,6 +319,21 @@
         border-radius: 3px;
         height: 18px;
         line-height: 18px;
+      }
+    }
+    &__code {
+      pre {
+        .hljs {
+          line-height: 1.8;
+          font-family: Menlo, Monaco, Consolas, Courier, monospace;
+          font-size: 12px;
+          padding: 18px 24px;
+          background-color: #f9fafc;
+          border: 1px solid #eaeefb;
+          margin-bottom: 25px;
+          border-radius: 4px;
+          -webkit-font-smoothing: auto;
+        }
       }
     }
     &__highlight {

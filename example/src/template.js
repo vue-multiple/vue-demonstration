@@ -262,3 +262,5 @@ export const sourcecodeJ = `<vue-demonstration
     通过 <code>slot="table"</code> 添加表格， 通过 <code>class="vd-demo__table"</code> 设置表格样式，还可以通过 <code>class="vd-demo__new"</code> 增加特殊标识。
   </template>
 </vue-demonstration>`
+
+export const sourcecodeK = `import VueDemonstration from 'vue-demonstration'`
