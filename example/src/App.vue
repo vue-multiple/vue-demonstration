@@ -247,6 +247,14 @@
       </template>
     </vue-demonstration>
     <vue-demonstration
+        anchor="zhan-shi-code"
+        :show-content="false"
+        :code="sourcecodeK">
+      <template slot="title">
+        展示代码 <i class="vd-demo__new">（1.0.2 新增）</i>
+      </template>
+    </vue-demonstration>
+    <vue-demonstration
         anchor="attributes"
         title="Attributes"
         :show-content="false">
@@ -261,7 +269,7 @@
           </thead>
           <tbody>
           <tr>
-            <td>multiple <i class="vd-demo__new">（特殊标识）</i></td>
+            <td>multiple</td>
             <td>是否同时展示多个示例</td>
             <td>boolean</td>
             <td>—</td>
@@ -273,7 +281,15 @@
             <td>string</td>
             <td>—</td>
             <td>—</td>
-          </tr><tr>
+          </tr>
+          <tr>
+            <td>code<i class="vd-demo__new">（1.0.2 新增）</i></td>
+            <td>要展示的代码片段</td>
+            <td>string</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
             <td>tag</td>
             <td>标题标签</td>
             <td>string</td>
@@ -329,7 +345,11 @@
           <th>参数</th>
           <th>说明</th>
           </thead>
-          <tbody>
+          <tbody>          
+          <tr>
+            <td>title <i class="vd-demo__new">（1.0.1 新增）</i></td>
+            <td>标题</td>
+          </tr>
           <tr>
             <td>description</td>
             <td>标题描述</td>
@@ -365,7 +385,8 @@
       sourcecodeG,
       sourcecodeH,
       sourcecodeI,
-      sourcecodeJ
+      sourcecodeJ,
+      sourcecodeK
   } from './template'
 
   export default {
@@ -381,7 +402,8 @@
         sourcecodeG,
         sourcecodeH,
         sourcecodeI,
-        sourcecodeJ
+        sourcecodeJ,
+        sourcecodeK
       }
     }
   }
