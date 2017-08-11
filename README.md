@@ -17,7 +17,7 @@ npm install vue-demonstration -S
  Vue.component('vue-demonstration', VueDemo)
  ```
  
-For more information, please refer to [vue-demonstration](http://savoygu.github.io/vue-demonstration) in our documentation.
+For more information, please refer to [vue-demonstration](https://demonstration.savoygu.com/vue-demonstration) in our documentation.
  
 ## Usage
  
