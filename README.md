@@ -1,27 +1,28 @@
 # vue-demonstration
 
-> Vue-based element docs's demo code style component, easily add examples to your Vue project to show your code.
+> Element 1.x 代码示例展示风格。帮助你展示你的 Vuejs 组件示例。
 
-## Install 
+## 安装
 
 ```bash
-npm install vue-demonstration -S
+npm install vue-demonstration --save
 ```
 
-## Quick Start
- 
+## 快速开始
+
 ```bash
  import Vue from 'vue'
  import VueDemo from 'vue-demonstration'
- 
+
  Vue.component('vue-demonstration', VueDemo)
  ```
- 
-For more information, please refer to [vue-demonstration](https://demonstration.savoygu.com/vue-demonstration) in our documentation.
- 
-## Usage
- 
-```
+
+更多使用方式，参考文档：[vue-demonstration](https://demonstration.savoygu.com/vue-demonstration)
+
+## 使用方式
+
+```html
+
 <template>
   <vue-demonstration
     title="标题"
@@ -37,6 +38,7 @@ For more information, please refer to [vue-demonstration](https://demonstration.
     </template>
   </vue-demonstration>
 </template>
+
 <script>
   const sourcecode = `<div>your code</div>`
   export default {
@@ -47,13 +49,15 @@ For more information, please refer to [vue-demonstration](https://demonstration.
      }
   }
 </script>
+
 ```
 
-If you want to add some javascript code to `sourcecode`，you need to put the `sourcecode` into a js file.
+如果要展示的代码较多的话，可以单独放一个文件中。
 
-## Build Setup
+## 运行方式和构建
 
 ``` bash
+
 # install dependencies
 npm install
 
@@ -71,7 +75,9 @@ npm run build
 
 # generate gh-pages
 npm run deploy
+
 ```
+
 ## LICENSE
 
 [MIT](http://opensource.org/licenses/MIT)
